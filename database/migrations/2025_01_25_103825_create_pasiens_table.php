@@ -23,10 +23,10 @@ return new class extends Migration
             $table->string('kabupaten');
             $table->string('provinsi');
             $table->string('negara');
-            $table->string('bahasa');
-            $table->string('ttl');
+            // $table->string('bahasa');
+            // $table->string('ttl');
             $table->string('umur');
-            $table->string('no_hp');
+            // $table->string('no_hp');
             $table->string('email');
             $table->string('jenis_kelamin');
             $table->string('status_nikah');
