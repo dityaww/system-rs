@@ -13,7 +13,9 @@ class PasienController extends Controller
     public function index()
     {
         //
-        return view('pasien.pasien');
+        $pasien = Pasien::get();
+
+        return view('pasien.pasien', compact('pasien'));
     }
 
     /**
@@ -31,6 +33,29 @@ class PasienController extends Controller
     public function store(Request $request)
     {
         //
+        $pasien = new Pasien();
+
+        $pasien->nama = $request->nama;
+        $pasien->no_rm = $request->no_rm;
+        $pasien->tanggal_rm = $request->tanggal_rm;
+        $pasien->alamat = $request->alamat;
+        $pasien->kota = $request->kota;
+        $pasien->kelurahan = $request->kelurahan;
+        $pasien->kecamatan = $request->kecamatan;
+        $pasien->kabupaten = $request->kabupaten;
+        $pasien->provinsi = $request->provinsi;
+        $pasien->negara = $request->negara;
+        $pasien->umur = $request->umur;
+        $pasien->email = $request->email;
+        $pasien->jenis_kelamin = $request->jenis_kelamin;
+        $pasien->status_nikah = $request->status_nikah;
+        $pasien->agama = $request->agama;
+        $pasien->pekerjaan = $request->pekerjaan;
+        $pasien->pendidikan = $request->pendidikan;
+        $pasien->npwp = $request->npwp;
+
+        $pasien->save();
+        return redirect()->route('pasien.index');
     }
 
     /**
@@ -44,25 +69,52 @@ class PasienController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pasien $pasien)
+    public function edit($id)
     {
         //
-        return view('pasien.editPasien');
+        $pasien = Pasien::find($id);
+        return view('pasien.editPasien', compact('pasien'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pasien $pasien)
+    public function update(Request $request, $id)
     {
         //
+        $pasien = Pasien::find($id);
+
+        $pasien->nama = $request->nama;
+        $pasien->no_rm = $request->no_rm;
+        $pasien->tanggal_rm = $request->tanggal_rm;
+        $pasien->alamat = $request->alamat;
+        $pasien->kota = $request->kota;
+        $pasien->kelurahan = $request->kelurahan;
+        $pasien->kecamatan = $request->kecamatan;
+        $pasien->kabupaten = $request->kabupaten;
+        $pasien->provinsi = $request->provinsi;
+        $pasien->negara = $request->negara;
+        $pasien->umur = $request->umur;
+        $pasien->email = $request->email;
+        $pasien->jenis_kelamin = $request->jenis_kelamin;
+        $pasien->status_nikah = $request->status_nikah;
+        $pasien->agama = $request->agama;
+        $pasien->pekerjaan = $request->pekerjaan;
+        $pasien->pendidikan = $request->pendidikan;
+        $pasien->npwp = $request->npwp;
+
+        $pasien->update();
+        return redirect()->route('pasien.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pasien $pasien)
+    public function delete($id)
     {
         //
+        $pasien = Pasien::find($id);
+        $pasien->delete();
+        return redirect()->route('pasien.index');
     }
 }
