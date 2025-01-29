@@ -1,11 +1,12 @@
 <x-layout>
+    {{-- {{ dd($jumlahPasien) }} --}}
     <x-dashboard>
         <h1 class="text-3xl font-semibold">Dashboard</h1>
         <div class="grid grid-cols-3 gap-10 mt-5">
             <div class="w-full bg-gradient-to-r from-violet-600 to-violet-100 h-44 rounded-lg py-4 px-10 flex items-center">
                 <div class="flex flex-col gap-2">
                     <span class="text-white font-medium text-lg">Data Pasien</span>
-                    <p class="text-7xl font-bold text-white">10</p>
+                    <p class="text-7xl font-bold text-white">{{ $jumlahPasien }}</p>
                 </div>
             </div>
             <div class="w-full bg-gradient-to-r from-blue-600 to-blue-100 h-44 rounded-lg py-4 px-10 flex items-center">
