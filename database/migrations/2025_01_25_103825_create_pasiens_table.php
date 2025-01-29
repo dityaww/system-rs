@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('no_rm');
-            $table->string('tanggal_rm');
+            $table->date('tanggal_rm');
             $table->string('alamat');
             $table->string('kota');
             $table->string('kelurahan');
